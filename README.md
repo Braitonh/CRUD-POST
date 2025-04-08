@@ -1,6 +1,4 @@
-# Plantilla Laravel 11 Dockerizada
-
-Os propociono una plantilla realizada con Laravel 11 y Docker para vuestros proyectos y poder tenerlo todo desde el principio.
+# Laravel 11 Dockerizada
 
 ## Tecnologías Utilizadas
 
@@ -8,7 +6,7 @@ Os propociono una plantilla realizada con Laravel 11 y Docker para vuestros proy
 ### - PHP 8
 ### - Mysql
 
-# Iniciación del proyecto 
+# Comandos
 
 Se dispone de un fichero Makefile con las siguientes instrucciones
 
@@ -57,5 +55,40 @@ Sirve para levantar el contenedor nada mas y hacerlo funcionar.
 ```
     make up
 ```
+# Iniciación del proyecto 
 
-Atualizado
+## make start
+
+Ejecutar make start en la terminal, si la primera vez si no usar make up
+
+```
+    make start
+```
+
+## make ssh-be
+
+Una vez los contenedores corriendo ejecutar en otra terminal
+
+```
+    make ssh-be
+```
+
+## php artisan key:generate
+
+Una vez los contenedores corriendo ejecutar en otra terminal
+
+```
+    php artisan key:generate
+```
+
+## php migration:generate
+
+Correr las migraciones
+
+```
+    php migration:generate
+```
+
+## Observaciones
+
+Clonar el .env.example en el .env y verificar credenciales de la DB
