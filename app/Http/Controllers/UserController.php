@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Throwable;
 
 /**
  * @OA\Tag(name="Users")
@@ -25,7 +26,16 @@ class UserController extends Controller
      */
     public function index()
     {
-        return response()->json(User::all(), 200);
+        try {
+            return response()->json(User::all(), 200);
+        }catch (Throwable $e) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Ocurrió un error al obtener los usuarios',
+                'error' => $e->getMessage(),
+            ], 500);
+        }
+
     }
 
     /**
@@ -49,16 +59,26 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:6',
-        ]);
 
-        $data['password'] = Hash::make($data['password']);
-        $user = User::create($data);
+        try {
+            $data = $request->validate([
+                'name' => 'required|string|max:255',
+                'email' => 'required|string|email|max:255|unique:users',
+                'password' => 'required|string|min:6',
+            ]);
+    
+            $data['password'] = Hash::make($data['password']);
+            $user = User::create($data);
+    
+            return response()->json($user, 201);
+        } catch (Throwable $e) {    
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Ocurrió un error al crear el usuario '. $e->getMessage(),
+            ], 500);
+        }
 
-        return response()->json($user, 201);
+
     }
 
     /**
