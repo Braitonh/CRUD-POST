@@ -89,6 +89,15 @@ dar permiso si hace falta a la carpeta
     sudo chmod -R 777 <Nombre de la carpeta del proyecto>
 ```
 
+## Probar funcionalidad
+
+En el navegador ingresar a:
+
+```
+    http://localhost:8080/api/documentation#/
+
+```
+
 ## Observaciones
 
 Clonar el .env.example en el .env y verificar credenciales de la DB
