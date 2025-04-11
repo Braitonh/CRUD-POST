@@ -59,7 +59,7 @@ Sirve para levantar el contenedor nada mas y hacerlo funcionar.
 
 ## make start
 
-Ejecutar make start en la terminal, si la primera vez si no usar make up
+Ejecutar make start en la terminal
 
 ```
     make start
@@ -75,8 +75,7 @@ Una vez los contenedores corriendo ejecutar en otra terminal
 
 ## php migration:generate
 
-Una vez los contenedores corriendo ejecutar en otra terminal
-Correr las migraciones
+Una vez dentro del contenedor correr las migraciones
 
 ```
     php migration:generate
