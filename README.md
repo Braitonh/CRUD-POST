@@ -73,20 +73,21 @@ Una vez los contenedores corriendo ejecutar en otra terminal
     make ssh-be
 ```
 
-## php artisan key:generate
-
-Una vez los contenedores corriendo ejecutar en otra terminal
-
-```
-    php artisan key:generate
-```
-
 ## php migration:generate
 
+Una vez los contenedores corriendo ejecutar en otra terminal
 Correr las migraciones
 
 ```
     php migration:generate
+```
+
+## Permisos
+
+dar permiso si hace falta a la carpeta
+
+```
+    sudo chmod -R 777 <Nombre de la carpeta del proyecto>
 ```
 
 ## Observaciones
